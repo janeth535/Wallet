@@ -10,7 +10,7 @@ class UserRepository(private val userDao: UserDao, private val currentUserDao: C
         val user = userDao.loginUser(email, password)
         return if (user != null) {
             val currentUser = CurrentUser(
-                id = 1, // ID fixo para usuário corrente
+                id = user.id, // ID fixo para usuário corrente
                 name = user.name,
                 email = user.email,
                 password = user.password
